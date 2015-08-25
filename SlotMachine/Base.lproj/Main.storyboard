@@ -1,25 +1,96 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="kNS-0f-YrC">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="SlotMachine" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nJh-Yu-YNx">
+                                <rect key="frame" x="0.0" y="72" width="320" height="162"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="vXZ-lx-hvc" id="Hu2-9x-MYG"/>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="hbq-oQ-rRm"/>
+                                </connections>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k2W-e5-M3Z">
+                                <rect key="frame" x="137" y="251" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="Ir1-Y3-bQh"/>
+                                    <constraint firstAttribute="height" constant="30" id="lTY-2j-84W"/>
+                                </constraints>
+                                <state key="normal" title="SPIN">
+                                    <color key="titleColor" red="0.8945705974" green="0.56594089059999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonClicked:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="cpz-CI-yXg"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yUb-6b-MYq">
+                                <rect key="frame" x="102" y="466" width="116" height="63"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="63" id="bdh-L0-YW9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="nJh-Yu-YNx" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" symbolic="YES" id="5OY-X6-qEt"/>
+                            <constraint firstItem="yUb-6b-MYq" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="86" id="FDA-uP-hwi"/>
+                            <constraint firstItem="k2W-e5-M3Z" firstAttribute="centerX" secondItem="nJh-Yu-YNx" secondAttribute="centerX" id="Fdc-at-Ppx"/>
+                            <constraint firstItem="k2W-e5-M3Z" firstAttribute="top" secondItem="nJh-Yu-YNx" secondAttribute="bottom" constant="17" id="HjX-Jt-cFb"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="yUb-6b-MYq" secondAttribute="bottom" constant="39" id="L49-dH-STx"/>
+                            <constraint firstItem="nJh-Yu-YNx" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="MxF-XJ-EYw"/>
+                            <constraint firstItem="yUb-6b-MYq" firstAttribute="centerX" secondItem="k2W-e5-M3Z" secondAttribute="centerX" id="PZ6-i5-a6Q"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="2o6-eQ-qSN"/>
+                    <connections>
+                        <outlet property="pickerView" destination="nJh-Yu-YNx" id="gxh-7b-n7b"/>
+                        <outlet property="resultLabel" destination="yUb-6b-MYq" id="eET-YA-j0a"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="652" y="320"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="wos-Kk-cMf">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kNS-0f-YrC" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="V1C-Au-EP9">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="kvo-dQ-fjU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vdI-pb-d85" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="120" y="320"/>
         </scene>
     </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
 </document>
